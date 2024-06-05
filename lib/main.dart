@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttercon_2024/presentation/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,13 +11,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'FlutterConf24 App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return ScreenUtilInit(
+      designSize: const Size(412, 778),
+      child: MaterialApp(
+        title: 'FlutterConf24 App',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home:
+            const SplashScreen()
+            //  MyHomePage(title: 'FlutterConf24 App'),
       ),
-      home: const MyHomePage(title: 'FlutterConf24 App'),
     );
   }
 }
